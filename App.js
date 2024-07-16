@@ -8,6 +8,7 @@ import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithModules from "./Lab5/WorkingWithModules.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js"
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
+import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import cors from 'cors';
 const app = express();
 app.use(cors());
@@ -20,6 +21,7 @@ PathParameters(app);
 QueryParameters(app);
 WorkingWithObjects(app);
 WorkingWithModules(app);
+WorkingWithArrays(app);
 app.listen(process.env.PORT || 4000, () => {
   console.log("Server is listening on port 4000");
 });
