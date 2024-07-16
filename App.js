@@ -9,7 +9,7 @@ import WorkingWithModules from "./Lab5/WorkingWithModules.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js"
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
-import AssingmentsRoutes from "./Kanbas/Assignments/routes.js";
+import AssingmentsRoutes from "./Kanbas/Assignment/routes.js";
 import cors from 'cors';
 const app = express();
 app.use(cors());
