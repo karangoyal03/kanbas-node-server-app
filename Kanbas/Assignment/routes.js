@@ -12,6 +12,12 @@ export default function AssingmentsRoutes(app) {
     res.send(assignments);
   });
 
+  app.get("/api/assignment/:id", (req, res) => {
+    const { id } = req.params;
+    const assignments = Database.assignments.filter((a) => a._id === id);
+    res.send(assignments);
+  });
+
   app.delete("/api/assignments/:id", (req, res) => {
     const { id } = req.params;
     Database.assignments = Database.assignments.filter((a) => a._id !== id);
