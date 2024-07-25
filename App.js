@@ -16,7 +16,11 @@ import UserRoutes from "./Users/routes.js";
 import cors from 'cors';
 const app = express();
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
-mongoose.connect(CONNECTION_STRING);
+mongoose.connect(CONNECTION_STRING,{ 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  bufferCommands: false 
+});
 app.use(cors());
 app.use(express.json());
 CourseRoutes(app);
