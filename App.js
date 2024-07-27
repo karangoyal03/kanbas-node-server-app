@@ -14,6 +14,7 @@ import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import AssingmentsRoutes from "./Kanbas/Assignment/routes.js";
 import UserRoutes from "./Users/routes.js";
 import cors from 'cors';
+import session from "express-session";
 const app = express();
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 mongoose.connect(CONNECTION_STRING,{ 
@@ -21,7 +22,28 @@ mongoose.connect(CONNECTION_STRING,{
   useUnifiedTopology: true, 
   bufferCommands: false 
 });
-app.use(cors());
+
+onst sessionOptions = {
+  secret: process.env.SESSION_SECRET || "kanbas",
+  resave: false,
+  saveUninitialized: false,
+};
+if (process.env.NODE_ENV !== "development") {
+  sessionOptions.proxy = true;
+  sessionOptions.cookie = {
+    sameSite: "none",
+    secure: true,
+    domain: process.env.NODE_SERVER_DOMAIN,
+  };
+}
+app.use(session(sessionOptions));
+
+
+app.use(cors({
+  credentials: true,
+  origin: process.env.NETLIFY_URL || "http://localhost:3000",
+}
+));
 app.use(express.json());
 CourseRoutes(app);
 ModuleRoutes(app)
