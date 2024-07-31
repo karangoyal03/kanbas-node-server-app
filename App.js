@@ -11,7 +11,7 @@ import WorkingWithModules from "./Lab5/WorkingWithModules.js";
 import CourseRoutes from "./Courses/routes.js"
 import ModuleRoutes from "./modules/routes.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
-import AssingmentsRoutes from "./Kanbas/Assignment/routes.js";
+import AssingmentsRoutes from "./Assignments/routes.js";
 import UserRoutes from "./Users/routes.js";
 import cors from 'cors';
 import session from "express-session";

@@ -13,7 +13,9 @@ export const createModule = async (module) => {
   return await model.create(module);
 };
 
-export const updateModule = async (mid, module) =>
-  await model.updateOne({ mid: mid }, { $set: module });
+export const updateModule = async (mid, module) => {
+  console.log(mid, module);
+  await model.updateOne({ _id : mid }, { $set: module });
+};
 
 export const deleteModule = async (mid) => await model.deleteOne({ _id: mid });
