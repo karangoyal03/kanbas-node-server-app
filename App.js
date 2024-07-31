@@ -8,8 +8,8 @@ import PathParameters from "./Lab5/PathParameters.js";
 import QueryParameters from "./Lab5/QueryParameters.js";
 import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithModules from "./Lab5/WorkingWithModules.js";
-import CourseRoutes from "./Kanbas/Courses/routes.js"
-import ModuleRoutes from "./Kanbas/Modules/routes.js";
+import CourseRoutes from "./Courses/routes.js"
+import ModuleRoutes from "./modules/routes.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import AssingmentsRoutes from "./Kanbas/Assignment/routes.js";
 import UserRoutes from "./Users/routes.js";

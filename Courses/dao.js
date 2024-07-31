@@ -1,19 +1,54 @@
-import model from "./model";
+import model from "./model.js";
 
-export const findAllCourses = () => {
-  model.find();
+export const findAllCourses = async () => {
+  try {
+    const courses = await model.find();
+    return courses;
+  } catch (error) {
+    console.error("Error finding courses:", error);
+    throw error;
+  }
 };
 
-export const findByCourseId = (id) => {
-  model.findOne({ cid: id });
+export const findByCourseId = async (id) => {
+  try{
+    const course = await model.findOne({ cid: id });
+    return course;
+  }catch(error){
+    console.error("Error finding courses:", error);
+    throw error;
+  }
+
 };
 
-export const createCourse = (course) => {
-  delete course._id;
-  return model.create(course);
+export const createCourse = async (course) => {
+  try{
+    delete course._id;
+    course.cid = Date.now().toString();
+    return await model.create(course);
+  }catch(error) {
+    console.error("Error finding courses:", error);
+    throw error;
+  }
+  
 };
 
-export const updateCourse = (cid, course) =>
-  model.updateOne({ cid: cid }, { $set: course });
+export const updateCourse = async (id, course) => {
+  try{
+    await model.updateOne({ cid: id }, { $set: course });
+  }catch(error) {
+    console.error("Error finding courses:", error);
+    throw error;
+  }
+ 
+};
 
-export const deleteCourse = (cid) => model.deleteOne({ cid: cid });
+export const deleteCourse = async (id) => {
+  try {
+    await model.deleteOne({ cid: id });
+    console.log("Deleted");
+  } catch (error) {
+    console.error("Error finding courses:", error);
+    throw error;
+  }
+};
