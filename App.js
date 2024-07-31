@@ -23,7 +23,7 @@ mongoose.connect(CONNECTION_STRING,{
   bufferCommands: false 
 });
 
-onst sessionOptions = {
+const sessionOptions = {
   secret: process.env.SESSION_SECRET || "kanbas",
   resave: false,
   saveUninitialized: false,
